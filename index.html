@@ -59,8 +59,8 @@
         }
         .iframe-container {
             width: 100%;
-            max-width: 600px; /* Ajusta esto si es necesario para adaptarse al nuevo tamaño del iframe */
-            height: 373.5px; /* Ajusta la altura para adaptarse al nuevo iframe */
+            max-width: 1140px; /* Ajuste para que el iframe no se desborde */
+            height: 70vh; /* Ajuste dinámico para que el iframe ocupe el 70% de la altura de la ventana */
             border: 1px solid #ddd;
             background-color: #fff;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -93,29 +93,21 @@
 </head>
 <body>
     <div class="header">
-        <img src="a.png" alt="Logo Distribuidora El Toro"> <!-- Reemplaza 'ruta/a/tu/logo.png' con la ruta correcta de tu imagen -->
+        <img src="a.png" alt="Logo Distribuidora El Toro">
         <h1>Distribuidora El Toro - Compras</h1>
         <div class="contact-info">
-            <img src="tele.jpg" alt="Teléfono"> <!-- Reemplaza 'ruta/a/tu/icono-telefono.png' con la ruta del ícono del teléfono -->
+            <img src="tele.jpg" alt="Teléfono">
             <span>Tel: (222) 227-6858</span>
             <a href="https://www.somoseltoro.com/bolsadetrabajo.php" target="_blank">
-                <img src="bolsatrabajo.png" alt="Bolsa de Trabajo"> <!-- Reemplaza 'ruta/a/tu/icono-bolsa.png' con la ruta del ícono de la bolsa de trabajo -->
+                <img src="bolsatrabajo.png" alt="Bolsa de Trabajo">
             </a>
         </div>
     </div>
     <div class="iframe-container">
-        <<iframe title="Porcentaje Agotados - copia" width="1140" height="541.25" src="https://app.powerbi.com/reportEmbed?reportId=daa2fcb4-9c3f-41fa-ab4a-191b6b7e4ebd&autoAuth=true&ctid=aa81b4e6-9e13-4514-b790-65ae246ef11f" frameborder="0" allowFullScreen="true"></iframe>>
+        <iframe title="Informe Power BI" src="https://app.powerbi.com/reportEmbed?reportId=daa2fcb4-9c3f-41fa-ab4a-191b6b7e4ebd&autoAuth=true&ctid=aa81b4e6-9e13-4514-b790-65ae246ef11f" frameborder="0" allowFullScreen="true"></iframe>
     </div>
     <div class="footer">
         <p><a href="https://www.somoseltoro.com" target="_blank">Visita nuestra página oficial: www.somoseltoro.com</a></p>
     </div>
-    <!-- Mensaje para depuración -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            if (!document.querySelector("iframe").src) {
-                console.error("El src del iframe está vacío. Verifica el enlace.");
-            }
-        });
-    </script>
 </body>
 </html>
