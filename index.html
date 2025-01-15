@@ -59,14 +59,13 @@
         }
         .iframe-container {
             width: 100%;
-            max-width: 1140px; /* Ajusta el máximo tamaño del iframe */
-            height: 800px; /* Puedes ajustar este valor para hacerlo más alto */
+            max-width: 600px; /* Ajusta esto si es necesario para adaptarse al nuevo tamaño del iframe */
+            height: 373.5px; /* Ajusta la altura para adaptarse al nuevo iframe */
             border: 1px solid #ddd;
             background-color: #fff;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             overflow: hidden;
             margin-bottom: 20px;
-            position: relative;
         }
         iframe {
             width: 100%;
@@ -90,25 +89,6 @@
         .footer a:hover {
             text-decoration: underline;
         }
-        .button-container {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            z-index: 10;
-        }
-        .btn {
-            background-color: #b03a2e;
-            color: white;
-            padding: 10px;
-            border: none;
-            cursor: pointer;
-            margin: 5px;
-            font-size: 14px;
-            border-radius: 5px;
-        }
-        .btn:hover {
-            background-color: #a32f28;
-        }
     </style>
 </head>
 <body>
@@ -124,43 +104,17 @@
         </div>
     </div>
     <div class="iframe-container">
-        <div class="button-container">
-            <button class="btn" id="toggleFullscreen">Pantalla Completa</button>
-            <button class="btn" id="prevPage">Página Anterior</button>
-            <button class="btn" id="nextPage">Página Siguiente</button>
-        </div>
-        <!-- Actualiza el iframe con el nuevo informe -->
-        <iframe title="Porcentaje Agotados - copia" src="https://app.powerbi.com/reportEmbed?reportId=daa2fcb4-9c3f-41fa-ab4a-191b6b7e4ebd&autoAuth=true&ctid=aa81b4e6-9e13-4514-b790-65ae246ef11f&filterPaneEnabled=false&navContentPaneEnabled=false" frameborder="0" allowFullScreen="true" id="powerbiIframe"></iframe>
+        <iframe title="Porcentaje Agotados - copia" width="600" height="373.5" src="https://app.powerbi.com/view?r=eyJrIjoiODFhNjRkZGItOTUzNi00NGY2LWIxMDYtM2M0ZGE0MjRlNzQwIiwidCI6ImFhODFiNGU2LTllMTMtNDUxNC1iNzkwLTY1YWUyNDZlZjExZiIsImMiOjR9" frameborder="0" allowFullScreen="true"></iframe>
     </div>
     <div class="footer">
         <p><a href="https://www.somoseltoro.com" target="_blank">Visita nuestra página oficial: www.somoseltoro.com</a></p>
     </div>
+    <!-- Mensaje para depuración -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            var iframe = document.getElementById('powerbiIframe');
-            var toggleFullscreenButton = document.getElementById('toggleFullscreen');
-            var prevPageButton = document.getElementById('prevPage');
-            var nextPageButton = document.getElementById('nextPage');
-
-            // Función para hacer el iframe a pantalla completa
-            toggleFullscreenButton.addEventListener('click', function() {
-                if (iframe.requestFullscreen) {
-                    iframe.requestFullscreen();
-                } else if (iframe.mozRequestFullScreen) { // Firefox
-                    iframe.mozRequestFullScreen();
-                } else if (iframe.webkitRequestFullscreen) { // Chrome, Safari y Opera
-                    iframe.webkitRequestFullscreen();
-                }
-            });
-
-            // Funciones para navegar entre páginas (si el informe lo permite)
-            prevPageButton.addEventListener('click', function() {
-                iframe.contentWindow.postMessage({action: "previousPage"}, "*");
-            });
-
-            nextPageButton.addEventListener('click', function() {
-                iframe.contentWindow.postMessage({action: "nextPage"}, "*");
-            });
+            if (!document.querySelector("iframe").src) {
+                console.error("El src del iframe está vacío. Verifica el enlace.");
+            }
         });
     </script>
 </body>
